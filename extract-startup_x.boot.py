@@ -25,7 +25,7 @@ except ImportError:
              "  pip install image")
 
 if len(sys.argv) != 3:
-    print("usage: extract-cff.py <filename> <outdir>")
+    print("usage: extract-startup_x.boot.py <filename> <outdir>")
     sys.exit(1)
 
 out_dir = sys.argv[2]
