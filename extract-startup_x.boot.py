@@ -74,6 +74,7 @@ while j < num_files:
         data_block_size = data_block_size - (zsize + 8)
 
     zlib_image = data[offset:offset + zsize]
+
     image_decompressed = zlib.decompress(zlib_image)
     # create path
     if not os.path.exists(out_dir):
@@ -81,9 +82,8 @@ while j < num_files:
     out_path = os.path.join(out_dir, 'img_%d.png' % j)
 
     print("Extracting", out_path, width, height)
-    if j > 0:
-        im = Image.frombuffer('LA', (width, height), image_decompressed, 'raw', 'LA', 0, 1)
-        im.save(out_path)
+    im = Image.frombuffer('LA', (width, height), image_decompressed, 'raw', 'LA', 0, 1)
+    im.save(out_path)
 
     j = j + 1
 
